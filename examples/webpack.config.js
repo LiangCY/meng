@@ -18,6 +18,7 @@ module.exports = {
   ],
   resolve: {
     alias: {
+      meng: path.join(__dirname, '..', 'src'),
       react: path.join(__dirname, 'node_modules', 'react'),
     },
     extensions: ['', '.js'],
