@@ -1,13 +1,18 @@
 {
   "name": "meng",
-  "version": "0.0.0",
+  "version": "0.0.3",
   "description": "My React Components.",
-  "main": "index.js",
-  "scripts": {},
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "set BABEL_ENV=production& node_modules\\.bin\\babel --out-dir=dist src"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LiangCY/meng.git"
   },
+  "files": [
+    "dist/"
+  ],
   "author": "lcy",
   "bugs": {
     "url": "https://github.com/LiangCY/meng/issues"
@@ -15,7 +20,7 @@
   "homepage": "https://github.com/LiangCY/meng#readme",
   "dependencies": {},
   "devDependencies": {
-    "babel": "^6.23.0",
+    "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
     "babel-preset-es2015": "^6.24.1",
