@@ -6,27 +6,20 @@ const buttonPropTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]),
-  className: PropTypes.string,
   disabled: PropTypes.bool,
+  primary: PropTypes.bool,
   style: PropTypes.object,
-  activeStyle: PropTypes.object,
-  focusStyle: PropTypes.object,
   hoverStyle: PropTypes.object,
   disabledStyle: PropTypes.object,
-  disabledHoverStyle: PropTypes.object,
-  onMouseDown: PropTypes.func,
   onMouseEnter: PropTypes.func,
   onMouseLeave: PropTypes.func,
-  primary: PropTypes.bool,
 };
 
 export default class Button extends Component {
-
   constructor(props) {
     super(props);
 
     this.state = {
-      isActive: false,
       isHovered: false
     };
   }
@@ -61,20 +54,46 @@ export default class Button extends Component {
     }
   };
 
-  _onMouseDown = (event) => {
-    if (this.props.onMouseDown) {
-      this.props.onMouseDown(event);
-    }
-  };
-
   render() {
+    const {
+      children,
+      disabled, primary,
+      style, hoverStyle, disabledStyle,
+      onMouseEnter, onMouseLeave,
+      ...otherProps
+    } = this.props;
+    const baseStyle = primary ? buttonStyle.primaryStyle : buttonStyle.style;
+    let combinedStyle = {
+      ...baseStyle,
+      ...style,
+    };
+
+    if (disabled) {
+      const baseDisabledStyle = primary ? buttonStyle.primaryDisabledStyle : buttonStyle.disabledStyle;
+      combinedStyle = {
+        ...combinedStyle,
+        ...baseDisabledStyle,
+        ...disabledStyle,
+      };
+    } else {
+      if (this.state.isHovered) {
+        const baseHoverStyle = primary ? buttonStyle.primaryHoverStyle : buttonStyle.hoverStyle;
+        combinedStyle = {
+          ...combinedStyle,
+          ...baseHoverStyle,
+          ...hoverStyle,
+        };
+      }
+    }
+
     return (
       <button
+        style={combinedStyle}
         onMouseEnter={this._onMouseEnter}
         onMouseLeave={this._onMouseLeave}
-        onMouseDown={this._onMouseDown }
-        disabled={this.props.disabled}>
-        {this.props.children}
+        disabled={disabled}
+        {...otherProps}>
+        {children}
       </button>
     );
   }

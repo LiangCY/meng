@@ -16,6 +16,7 @@ const buttonStyle = {
     textAlign: 'center',
     textDecoration: 'none',
     verticalAlign: 'bottom',
+    outline: 'none',
     transition: 'background 0.1s, border-top 0.1s, border-bottom 0.1s, color 0.1s',
     transitionTimingFunction: 'ease-out',
   },
@@ -26,20 +27,9 @@ const buttonStyle = {
     color: '#757575',
   },
 
-  activeStyle: {
-    background: '#E0E0E0',
-    color: '#424242',
-    borderBottom: '1px solid #E0E0E0',
-    borderTop: '1px solid #BDBDBD',
-  },
-
   disabledStyle: {
     color: '#C5C4C4',
     cursor: 'not-allowed',
-  },
-
-  disabledHoverStyle: {
-    color: '#D0D0D0',
   },
 
   primaryStyle: {
@@ -58,6 +48,7 @@ const buttonStyle = {
     textAlign: 'center',
     textDecoration: 'none',
     verticalAlign: 'bottom',
+    outline: 'none',
     transition: 'border-top 0.1s, border-bottom 0.1s, color 0.1s',
     transitionTimingFunction: 'ease-out',
   },
@@ -68,14 +59,6 @@ const buttonStyle = {
     color: '#FFF',
   },
 
-
-  primaryActiveStyle: {
-    background: '#4DBEE8',
-    borderBottom: '1px solid #4DBEE8',
-    borderTop: '1px solid #3995B7',
-    color: '#F5F5F5',
-  },
-
   primaryDisabledStyle: {
     background: '#98DEF8',
     color: '#FAFAFA',
@@ -84,11 +67,6 @@ const buttonStyle = {
     cursor: 'not-allowed',
   },
 
-  primaryDisabledHoverStyle: {
-    background: '#A7E4FB',
-    color: '#FFF',
-    borderTop: '1px solid #A7E4FB',
-  },
 };
 
 export default buttonStyle;

@@ -18,7 +18,6 @@ module.exports = {
   ],
   resolve: {
     alias: {
-      meng: path.join(__dirname, '..', 'src'),
       react: path.join(__dirname, 'node_modules', 'react'),
     },
     extensions: ['', '.js'],
@@ -34,6 +33,10 @@ module.exports = {
         test: /\.js$/,
         loaders: ['babel'],
         include: path.join(__dirname, '..', 'src'),
+      }, {
+        test: /\.less$/,
+        loaders: ['style-loader', 'css-loader', 'less-loader'],
+        include: path.join(__dirname, 'style'),
       },
     ],
   },
