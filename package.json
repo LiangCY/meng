@@ -1,6 +1,6 @@
 {
   "name": "mrc",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "My React Components.",
   "main": "dist/index.js",
   "scripts": {
